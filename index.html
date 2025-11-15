@@ -1,326 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BHAICODE AI</title>
-
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background: #0d0d0d;
-      color: white;
-      text-align: center;
-    }
-
-    header {
-      background: #111;
-      padding: 20px;
-      font-size: 26px;
-      font-weight: bold;
-      color: #00eaff;
-      border-bottom: 2px solid #00eaff;
-    }
-
-    .container {
-      margin: 20px auto;
-      width: 90%;
-      max-width: 500px;
-    }
-
-    .box {
-      background: #1a1a1a;
-      padding: 20px;
-      border-radius: 10px;
-      margin-top: 20px;
-      border: 1px solid #333;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      margin-top: 10px;
-      border-radius: 8px;
-      border: none;
-      outline: none;
-      background: #262626;
-      color: white;
-      font-size: 15px;
-    }
-
-    button {
-      margin-top: 12px;
-      width: 100%;
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      background: #00eaff;
-      color: black;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    img {
-      margin-top: 15px;
-      width: 100%;
-      border-radius: 10px;
-    }
-  </style>
-</head>
-
-<body>
-  <header>BHAICODE AI</header>
-
-  <div class="container">
-
-    <!-- Chatbot -->
-    <div class="box">
-      <h2>AI Chatbot</h2>
-      <textarea id="chatInput" placeholder="Ask anything..."></textarea>
-      <button onclick="chat()">Ask AI</button>
-      <p id="chatResponse"></p>
-    </div>
-
-    <!-- Image Generator -->
-    <div class="box">
-      <h2>AI Image Generator</h2>
-      <input id="imgPrompt" placeholder="Describe your image..." />
-      <button onclick="generateImage()">Generate Image</button>
-      <img id="genImage" style="display:none;" />
-    </div>
-
-  </div>
-
-  <script>
-    // Chatbot (Dummy Response Now)
-    function chat() {
-      let input = document.getElementById("chatInput").value;
-      document.getElementById("chatResponse").innerText =
-        "⚠️ API Key missing — Chatbot will work after you connect your API. Your question: " + input;
-    }
-
-    // Image Generator (Dummy Response Now)
-    function generateImage() {
-      let prompt = document.getElementById("imgPrompt").value;
-
-      document.getElementById("genImage").src =
-        "https://placehold.co/600x400?text=Connect+API+To+Generate+Images";
-      document.getElementById("genImage").style.display = "block";
-    }
-  </script>
-
-</body>
-</html>
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>BHAICODE AI — Your Desi Bro</title>
-<meta name="description" content="BHAICODE AI - Desi bro for gym, style, skin & earning"/>
-<link rel="icon" href="data:;base64,iVBORw0KGgo=">
-
-<style>
-:root{
-  --bg:#070707;--card:#0f0f0f;--gold:#d4af37;--muted:#9b9b9b;
-}
-*{box-sizing:border-box;font-family:Inter,system-ui,Arial;margin:0;padding:0}
-body{background:linear-gradient(180deg,#060606,#0b0b0b);color:#fff;min-height:100vh}
-.container{max-width:980px;margin:28px auto;padding:20px}
-.header{display:flex;align-items:center;gap:14px;margin-bottom:20px}
-.logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--gold),#b8892e);display:flex;align-items:center;justify-content:center;font-weight:900;color:#080808;font-size:18px}
-.title{font-size:20px}
-.lead{color:var(--muted);margin-top:6px}
-.grid{display:grid;grid-template-columns:1fr 360px;gap:18px}
-.card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.6)}
-label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
-input,select,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:#0b0b0b;color:#fff}
-.btn{background:linear-gradient(90deg,var(--gold),#b8892e);color:#0b0b0b;padding:10px 14px;border-radius:10px;border:none;font-weight:800;cursor:pointer}
-.small{font-size:13px;color:var(--muted)}
-.preview{background:#060606;border-radius:10px;padding:12px;min-height:160px;overflow:auto}
-.ad-slot{border:1px dashed rgba(255,215,0,0.12);padding:12px;border-radius:10px;margin-top:10px;text-align:center;color:var(--muted)}
-.u-row{display:flex;gap:8px}
-.fileinput{padding:8px;border-radius:8px;border:1px dashed rgba(255,255,255,0.04);background:#0b0b0b;color:#fff}
-footer{margin-top:16px;color:var(--muted);font-size:13px;text-align:center}
-@media(max-width:920px){.grid{grid-template-columns:1fr}.card{margin-bottom:12px}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BHAICODE AI</title>
+    <style>
+        body { font-family: Arial; background: #111; color: white; padding: 20px; }
+        #chatbox { width: 100%; height: 400px; background: #222; padding: 10px; overflow-y: auto; border-radius: 10px; }
+        #input { width: 80%; padding: 10px; border-radius: 5px; border: none; }
+        #send { padding: 10px 20px; border: none; background: #0f0; color: black; border-radius: 5px; }
+        .msg { margin: 10px 0; padding: 10px; background: #333; border-radius: 5px; }
+        .user { background: #0a0; }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <div class="logo">BHAI</div>
-      <div>
-        <div class="title">BHAICODE AI</div>
-        <div class="lead small">Desi bro — instant plans for gym, style, skin & earning. Theme: Dark Black + Gold</div>
-      </div>
-    </div>
 
-    <div class="grid">
-      <main>
-        <div class="card">
-          <h3>Tell your bro about you</h3>
-          <p class="small">Short & safe. We process ephemeral — no permanent storage on this server unless you configure it.</p>
+<h2>BHAICODE AI – Gemini Chatbot</h2>
 
-          <div style="margin-top:12px">
-            <label>Nickname (optional)</label>
-            <input id="name" placeholder="e.g. Rahul" />
-            <label style="margin-top:8px">Age</label>
-            <input id="age" type="number" placeholder="16" />
-            <label style="margin-top:8px">Height (cm)</label>
-            <input id="height" type="number" placeholder="170" />
-            <label style="margin-top:8px">Weight (kg)</label>
-            <input id="weight" type="number" placeholder="65" />
-            <label style="margin-top:8px">Goal</label>
-            <select id="goal">
-              <option value="muscle">Muscle gain</option>
-              <option value="fatloss">Lose fat</option>
-              <option value="height">Height increase</option>
-              <option value="style">Style makeover</option>
-              <option value="skin">Skin glow</option>
-              <option value="money">Money / side-income</option>
-              <option value="all">Everything</option>
-            </select>
-            <label style="margin-top:8px">Budget per month (₹)</label>
-            <input id="budget" placeholder="5000" />
-            <label style="margin-top:8px">Quick note (optional)</label>
-            <textarea id="note" rows="3" placeholder="Any allergies, vegetarian, time available..."></textarea>
+<div id="chatbox"></div>
 
-            <div style="margin-top:12px;display:flex;gap:10px">
-              <button id="generate" class="btn">Generate My Plan — Free</button>
-              <button id="generateImage" class="btn" style="background:transparent;border:1px solid var(--gold);color:var(--gold)">Generate Image</button>
-            </div>
+<br>
 
-            <p class="small" style="margin-top:10px">Tip: Share screenshot on IG with link in bio to get more users.</p>
-          </div>
-        </div>
-
-        <div class="card" style="margin-top:12px">
-          <h3>Upload photo for edits</h3>
-          <p class="small">Upload face/body/room to get edited "glow-up" results.</p>
-          <div class="u-row" style="margin-top:8px">
-            <input id="file" class="fileinput" type="file" accept="image/*"/>
-            <button id="editPhoto" class="btn">Edit Photo</button>
-          </div>
-          <div class="ad-slot" style="margin-top:12px">AFF / Sponsor Banner Here (replace with <code>&lt;a href=&quot;AFF_LINK&quot;&gt;&lt;img..&gt;&lt;/a&gt;</code>)</div>
-        </div>
-
-        <div class="card" style="margin-top:12px">
-          <h3>Quick promo / how to earn</h3>
-          <ul class="small" style="text-align:left;margin-top:8px;padding-left:18px;color:var(--muted)">
-            <li>Add your affiliate links in product suggestions</li>
-            <li>Share results on Instagram Reels (link in bio)</li>
-            <li>Create small paid PDF guides to sell</li>
-          </ul>
-        </div>
-
-      </main>
-
-      <aside>
-        <div class="card">
-          <h3>Your BHAICODE Plan</h3>
-          <div id="result" class="preview small">Your personalized plan will appear here. (If API not connected you'll see a sample/dummy response.)</div>
-
-          <div style="margin-top:10px;display:flex;gap:8px">
-            <button id="downloadPDF" class="btn" style="flex:1">Download PDF</button>
-            <button id="shareWhatsapp" class="btn" style="background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)">Share</button>
-          </div>
-
-          <div class="ad-slot" style="margin-top:12px">Top Ad Slot (AdSense placeholder)</div>
-        </div>
-
-        <div class="card" style="margin-top:12px">
-          <h4>About BHAICODE</h4>
-          <p class="small" style="margin-top:8px">Privacy-first: this frontend sends inputs to /api/generate and /api/image. No local storage. Deploy API with env keys for live AI.</p>
-        </div>
-      </aside>
-    </div>
-
-    <footer>
-      <div class="small">Built for BHAICODE AI — Privacy-first. © BHAICODE</div>
-    </footer>
-  </div>
+<input id="input" type="text" placeholder="Type your message...">
+<button id="send">Send</button>
 
 <script>
-/* ---------- Helpers ---------- */
-const $ = id => document.getElementById(id);
-function showResult(txt){ $('result').innerHTML = txt; }
+    const GEMINI_API_KEY = "YOUR_GEMINI_API_KEY_HERE";  // <-- Yaha apni key daalni hai
 
-/* ---------- Generate Plan ---------- */
-$('generate').addEventListener('click', async ()=>{
-  const payload = {
-    name: $('name').value || '',
-    age: $('age').value || '',
-    height: $('height').value || '',
-    weight: $('weight').value || '',
-    goal: $('goal').value || 'all',
-    budget: $('budget').value || '',
-    note: $('note').value || ''
-  };
-  showResult('<i>Bhai plan bna raha hu... 10–40s</i>');
-  try{
-    const res = await fetch('/api/generate', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
-    if(!res.ok) throw new Error('no api');
-    const json = await res.json();
-    if(json.ok) showResult('<pre style="white-space:pre-wrap; font-family:inherit;">'+json.text+'</pre>');
-    else showResult('<b>API error:</b> '+(json.error||'Unknown'));
-  }catch(err){
-    // fallback dummy
-    const sample = `Bhai sample plan (no API):\n\n1) Workout: 30 min bodyweight daily\n2) Diet: Paneer, dal, sprouts, milk — protein focus\n3) Skin: Cleanse-morning, sunscreen, night hydration\n4) Money: Start IG reels, share results, add affiliate links\n\nDeploy API for full answers.`;
-    showResult('<pre style="white-space:pre-wrap; font-family:inherit;">'+sample+'</pre>');
-  }
-});
+    async function askGemini(message) {
+        const response = await fetch(
+            "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + GEMINI_API_KEY,
+            {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    contents: [{ role: "user", parts: [{ text: message }] }]
+                })
+            }
+        );
 
-/* ---------- Generate Image (text -> image) ---------- */
-$('generateImage').addEventListener('click', async ()=>{
-  const prompt = prompt('Describe the image you want (e.g. "Desi haircut idea for short hair")');
-  if(!prompt) return;
-  showResult('<i>Image generating... wait 10–40s</i>');
-  try{
-    const res = await fetch('/api/image', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ prompt, mode:'generate' }) });
-    if(!res.ok) throw new Error('no image api');
-    const blob = await res.blob();
-    const url = URL.createObjectURL(blob);
-    showResult(`<img src="${url}" style="max-width:100%;border-radius:10px" />`);
-  }catch(e){
-    showResult('<b>Image API not available.</b> Use Apps Script fallback or deploy image API to Vercel.');
-  }
-});
+        const data = await response.json();
+        return data.candidates?.[0]?.content?.parts?.[0]?.text || "Error: No response";
+    }
 
-/* ---------- Edit Photo (upload) ---------- */
-$('editPhoto').addEventListener('click', async ()=>{
-  const f = $('file').files[0];
-  if(!f){ alert('Upload an image first'); return; }
-  showResult('<i>Uploading & editing image... 15–60s</i>');
-  try{
-    const fd = new FormData();
-    fd.append('file', f);
-    fd.append('mode','edit');
-    const res = await fetch('/api/image', { method:'POST', body: fd });
-    if(!res.ok) throw new Error('no edit api');
-    const blob = await res.blob();
-    const url = URL.createObjectURL(blob);
-    showResult(`<img src="${url}" style="max-width:100%;border-radius:10px" />`);
-  }catch(e){
-    showResult('<b>Image edit failed.</b> Deploy server image endpoint or use Apps Script fallback.');
-  }
-});
+    document.getElementById("send").onclick = async () => {
+        const input = document.getElementById("input");
+        const chatbox = document.getElementById("chatbox");
 
-/* ---------- Download PDF (client-side) ---------- */
-$('downloadPDF').addEventListener('click', ()=>{
-  const text = $('result').innerText || 'Your BHAICODE plan is empty.';
-  const blob = new Blob([text], {type:'text/plain'});
-  const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
-  a.download = 'bhaicode-plan.txt'; a.click();
-});
+        let userMsg = document.createElement("div");
+        userMsg.className = "msg user";
+        userMsg.textContent = input.value;
+        chatbox.appendChild(userMsg);
 
-/* ---------- Share via WhatsApp ---------- */
-$('shareWhatsapp').addEventListener('click', ()=>{
-  const text = encodeURIComponent($('result').innerText || 'Check BHAICODE AI');
-  window.open(`https://wa.me/?text=${text}`, '_blank');
-});
+        const reply = await askGemini(input.value);
+
+        let botMsg = document.createElement("div");
+        botMsg.className = "msg";
+        botMsg.textContent = reply;
+        chatbox.appendChild(botMsg);
+
+        input.value = "";
+        chatbox.scrollTop = chatbox.scrollHeight;
+    };
 </script>
+
 </body>
 </html>
