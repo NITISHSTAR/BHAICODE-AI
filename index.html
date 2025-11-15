@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BHAICODE AI</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #0d0d0d;
+      color: white;
+      text-align: center;
+    }
+
+    header {
+      background: #111;
+      padding: 20px;
+      font-size: 26px;
+      font-weight: bold;
+      color: #00eaff;
+      border-bottom: 2px solid #00eaff;
+    }
+
+    .container {
+      margin: 20px auto;
+      width: 90%;
+      max-width: 500px;
+    }
+
+    .box {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      border: 1px solid #333;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      background: #262626;
+      color: white;
+      font-size: 15px;
+    }
+
+    button {
+      margin-top: 12px;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #00eaff;
+      color: black;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    img {
+      margin-top: 15px;
+      width: 100%;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>BHAICODE AI</header>
+
+  <div class="container">
+
+    <!-- Chatbot -->
+    <div class="box">
+      <h2>AI Chatbot</h2>
+      <textarea id="chatInput" placeholder="Ask anything..."></textarea>
+      <button onclick="chat()">Ask AI</button>
+      <p id="chatResponse"></p>
+    </div>
+
+    <!-- Image Generator -->
+    <div class="box">
+      <h2>AI Image Generator</h2>
+      <input id="imgPrompt" placeholder="Describe your image..." />
+      <button onclick="generateImage()">Generate Image</button>
+      <img id="genImage" style="display:none;" />
+    </div>
+
+  </div>
+
+  <script>
+    // Chatbot (Dummy Response Now)
+    function chat() {
+      let input = document.getElementById("chatInput").value;
+      document.getElementById("chatResponse").innerText =
+        "⚠️ API Key missing — Chatbot will work after you connect your API. Your question: " + input;
+    }
+
+    // Image Generator (Dummy Response Now)
+    function generateImage() {
+      let prompt = document.getElementById("imgPrompt").value;
+
+      document.getElementById("genImage").src =
+        "https://placehold.co/600x400?text=Connect+API+To+Generate+Images";
+      document.getElementById("genImage").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
